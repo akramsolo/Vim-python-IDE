@@ -1,5 +1,3 @@
-
-```bash
 #!/bin/bash
 
 echo "=== Updating Termux ==="
@@ -8,17 +6,15 @@ pkg update -y && pkg upgrade -y
 echo "=== Installing essential tools ==="
 pkg install -y vim python nodejs git curl nano
 
-echo "=== Ensuring pip is installed ==="
-python -m ensurepip
-python -m pip install --upgrade pip
-python -m pip install virtualenv
+echo "=== Ensuring pip and virtualenv are installed ==="
+python -m pip install --upgrade pip virtualenv
 
 echo "=== Creating vim-plug directory if not exists ==="
 mkdir -p ~/.vim/autoload
 
 echo "=== Installing vim-plug ==="
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 echo "=== Creating .vimrc optimized for Python IDE ==="
 cat > ~/.vimrc <<'EOF'
@@ -109,10 +105,10 @@ autocmd BufEnter * if bufname("#") =~ "NERD_tree" | wincmd p | endif
 EOF
 
 echo "=== Installing all Vim Plugins ==="
-vim +'PlugInstall --sync' +cquit
+vim +'PlugInstall --sync' +qa
 
 echo "=== Installing coc-pyright for Python autocomplete ==="
-vim +'CocInstall -sync coc-pyright' +cquit
+vim +'CocInstall -sync coc-pyright --y' +qa
 
 echo "=== Setup complete! Open Vim and enjoy a full Python IDE! ==="
 echo "Example: vim myscript.py"
