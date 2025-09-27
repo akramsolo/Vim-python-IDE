@@ -1,148 +1,135 @@
+Termux Vim Python IDE Setup
 
----
-
-Termux Vim Python IDE
-
-Turn Vim inside Termux into a lightweight Python IDE with a single script.
-
-Repository: https://github.com/akramsolo/Vim-python-IDE
-Author: akramsolo
-
-
----
-
-Overview
-
-This repository provides a Bash script (setup-Vim-python-IDE.sh) that automates the setup of a Python development environment inside Termux (Android).
-
-The script will:
-
-Update Termux packages.
-
-Install essential tools: vim, python, nodejs, git, curl, nano.
-
-Upgrade pip and install virtualenv.
-
-Install vim-plug and configure a ready-to-use ~/.vimrc.
-
-Install popular Vim plugins: NERDTree, fzf, coc.nvim, ale, UltiSnips, gruvbox, etc.
-
-Set up Python autocomplete with coc-pyright.
-
-
-⚠️ Note: Designed for Termux on Android. May work on other Linux systems but not guaranteed.
+This script transforms Vim inside Termux into a lightweight Python IDE with essential plugins, autocompletion, linters, and a visually appealing interface.
 
 
 ---
 
 Features
 
-Termux update & upgrade
+Python IDE ready with autocompletion using coc.nvim + coc-pyright
 
-Core package installation
+Syntax highlighting and linting via ALE
 
-Python tooling (pip, virtualenv)
+File navigation with NERDTree and fzf
 
-Automatic vim-plug setup & plugin installation
+Code snippets with UltiSnips and vim-snippets
 
-Prebuilt .vimrc optimized for Python development
+Writing enhancements: auto-pairs, commentary, surround
 
-Backup of existing .vimrc if present
+Visual improvements: Gruvbox colorscheme, indent guides, rainbow brackets
+
+Terminal integration inside Vim
+
+Handy keybindings for faster navigation and editing
 
 
 
 ---
 
-Installation (Preferred Method)
+Requirements
 
-1. Create the script:
+Termux installed on your Android device
 
-
-
-nano setup-Vim-python-IDE.sh
-
-Paste the full script content
-
-Save (Ctrl + O) and exit (Ctrl + X)
-
-
-2. Make it executable:
+Internet connection for downloading packages and plugins
 
 
 
-chmod +x setup-Vim-python-IDE.sh
+---
 
-3. Run the script:
+Installation Steps
 
-
-
-./setup-Vim-python-IDE.sh
-
-> Alternatively, you can run bash setup-Vim-python-IDE.sh, but ./ is preferred after making it executable.
+1. Open Termux.
 
 
+2. Create the installation script using nano:
 
-4. Start coding:
 
 
+nano setup_vim_python.sh
+
+3. Paste the script into nano (copy everything from your script above).
+
+
+4. Save and exit:
+
+
+
+Press CTRL+O → Enter (to save)
+
+Press CTRL+X (to exit nano)
+
+
+5. Make the script executable:
+
+
+
+chmod +x setup_vim_python.sh
+
+6. Run the script:
+
+
+
+./setup_vim_python.sh
+
+The script will:
+
+Update Termux packages
+
+Install essential tools: vim, python, nodejs, git, curl, nano
+
+Set up vim-plug plugin manager
+
+Configure Vim for Python development
+
+Install all Vim plugins automatically
+
+Install coc-pyright for Python autocompletion
+
+
+
+---
+
+Usage
+
+Open a Python file in Vim:
 
 vim myscript.py
 
-
----
-
-Useful Vim Shortcuts (from .vimrc)
+Useful Shortcuts
 
 Shortcut	Action
 
-Ctrl + n	Toggle NERDTree
+Ctrl+n	Toggle NERDTree file explorer
+<leader>f	Format selection / file
+<leader>t	Open terminal inside Vim
 gd	Go to definition (coc.nvim)
-K	Show hover/info (coc.nvim)
-<Leader>f	Format selection (coc.nvim)
-<Leader>t	Open terminal inside Vim
+K	Hover for documentation (coc.nvim)
+<Tab> / <Shift+Tab>	Navigate snippets
 
 
-Restore previous Vim configuration:
+> Note: <leader> is mapped to \ by default in Vim.
 
-cp ~/.vimrc.backup ~/.vimrc
+
 
 
 ---
 
-Troubleshooting
+Screenshots
 
-If plugin installation fails, open Vim and run :PlugInstall.
-
-If coc.nvim or coc-pyright fails, ensure Node.js is installed and the device has internet access.
-
-Ensure the script is in the current directory and has execute permission (chmod +x).
-
-To revert .vimrc, use the backup command above.
-
+(Optional: add screenshots of Vim with plugins in action)
 
 
 ---
 
 Contributing
 
-Issues, bug reports, and pull requests are welcome.
-
-Suggested labels: bug, enhancement, documentation, help wanted.
-
+Feel free to fork the script, improve .vimrc settings, or add more plugins. Pull requests are welcome!
 
 
 ---
 
-Credits
+License
 
-Thanks to the maintainers of the following open-source tools:
+MIT License
 
-Vim
-
-vim-plug (junegunn)
-
-coc.nvim & coc-pyright / pyright
-
-fzf
-
-gruvbox and other plugin authors
