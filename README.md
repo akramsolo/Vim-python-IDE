@@ -87,12 +87,6 @@ vim myscript.py
 
 ---
 
-## Screenshots
-
-*(Optional: add screenshots of Vim with plugins in action)*
-
----
-
 ## Contributing
 
 Feel free to fork the script, improve `.vimrc` settings, or add more plugins. Pull requests are welcome!
